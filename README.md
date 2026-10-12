@@ -1,6 +1,6 @@
 ![Seedance Prompt Skill · Token360 edition](assets/token360-header.webp)
 
-# Seedance 2.0 Prompt Writing Skills · Token360 edition
+# Seedance Prompt Writing Skills · Token360 Seedance 2.5 edition
 
 [中文](README-zh.md)
 
@@ -19,6 +19,8 @@ Write the prompt with the skill, then render it with Seedance 2.5 through Token3
 2. Render a clip:
 
 ```bash
+git clone https://github.com/token360-community/seedance-prompt-skill.git
+cd seedance-prompt-skill
 export TOKEN360_API_KEY="sk-..."                         # your key (never commit it)
 export TOKEN360_BASE_URL="https://api.token360.ai/v1"    # default, shown for clarity
 python3 scripts/token360_video.py --model seedance-2.5 \
@@ -39,7 +41,7 @@ Four 5-second clips rendered with **Seedance 2.5 on Token360** from prompts writ
 | **Science / education (§10)** | **One-take (§8)** |
 | <a href="examples/token360-samples/science-edu.mp4"><img src="examples/token360-samples/science-edu.gif" width="380" alt="Science explainer"></a> | <a href="examples/token360-samples/one-take.mp4"><img src="examples/token360-samples/one-take.gif" width="380" alt="One-take"></a> |
 
-<img src="assets/thumbnail-token360.jpg" width="380" alt="Seedance 2.0 Prompt Writing Skills thumbnail"><br>
+<img src="assets/thumbnail-token360.jpg" width="380" alt="Seedance Prompt Writing Skills thumbnail"><br>
 <sub>Repository thumbnail, regenerated with <code>gpt-image-2</code> on Token360 from the repo's own <a href="assets/thumbnail-prompt.txt">thumbnail prompt</a> (text added afterwards, not by the model).</sub>
 
 [Agent skills](https://agentskills.io) for writing effective video generation prompts for [Jimeng Seedance 2.0](https://jimeng.jianying.com/), ByteDance's multimodal AI video generation model. Works with Claude Code, Cursor, Cline, and other compatible agents.
@@ -53,22 +55,24 @@ Covers input constraints, @ reference syntax, camera language, prompt structure 
 Clone or download this repository, then copy the skill file(s) to your Claude skills directory:
 
 ```bash
-mkdir -p ~/.claude/skills
+mkdir -p ~/.claude/skills/seedance-prompt-en/scripts ~/.claude/skills/seedance-prompt-zh/scripts
 
 # English
-cp SKILL.md ~/.claude/skills/seedance-prompt-en.md
+cp SKILL.md ~/.claude/skills/seedance-prompt-en/SKILL.md
+cp scripts/token360_video.py ~/.claude/skills/seedance-prompt-en/scripts/
 
 # Chinese
-cp zh/SKILL.md ~/.claude/skills/seedance-prompt-zh.md
+cp zh/SKILL.md ~/.claude/skills/seedance-prompt-zh/SKILL.md
+cp scripts/token360_video.py ~/.claude/skills/seedance-prompt-zh/scripts/
 ```
 
 ### Option B: Via skills CLI
 
 ```bash
-npx skills add token360-community/seedance-prompt-skill
+npx --yes skills add token360-community/seedance-prompt-skill --full-depth --skill seedance-prompt-en seedance-prompt-zh --agent claude-code --global --yes
 ```
 
-Then ask your AI agent to help you write a Seedance 2.0 video prompt.
+Restart Claude Code and ask it to list its available skills: `seedance-prompt-en` and `seedance-prompt-zh`. Ask for a Seedance 2.5 prompt for Token360; the original guide describes Jimeng Seedance 2.0 constraints. Run rendering commands from the installed skill directory (the directory containing its `SKILL.md`).
 
 ## Skills
 

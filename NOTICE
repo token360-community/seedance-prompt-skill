@@ -28,3 +28,5 @@ Modifications by Token360 (2026-10-11):
 - .env.example: new.
 
 "Token360" is a trademark of Token360. Upstream names and marks belong to their owners.
+
+- 2026-10-12: Correct skill-directory installation, include the renderer in both language installs, document noninteractive full-depth CLI installation, and make smoke commands self-contained and low-cost.

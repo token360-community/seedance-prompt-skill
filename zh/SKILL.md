@@ -444,10 +444,10 @@ Seedance 2.0 通过 `@` 来指定每个素材的用途，这是提示词撰写�
 用户确认提示词后，可以主动提出帮其渲染。仅在用户需要、且其环境中已设置 `TOKEN360_API_KEY` 时执行（不要让用户把 Key 粘贴到对话里）。
 
 1. 把最终提示词保存为文本文件，例如 `prompt.txt`。
-2. 运行：
+2. 在包含本 `SKILL.md` 的技能目录（或仓库根目录）中运行：
    ```bash
    python3 scripts/token360_video.py --prompt-file prompt.txt --model seedance-2.5 \
-     --duration 5 --resolution 720p --aspect-ratio 16:9 --out output.mp4
+     --duration 4 --resolution 480p --aspect-ratio 16:9 --out output.mp4
    ```
 3. 告知用户生成文件的路径。草稿阶段建议先用 `--resolution 480p --duration 4`，成本低很多。
 

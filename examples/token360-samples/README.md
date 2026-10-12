@@ -4,10 +4,11 @@ Four short clips rendered on **2026-10-11** with **Seedance 2.5 on [Token360](ht
 
 本目录的 4 段视频均于 2026-10-11 用 Token360 上的 Seedance 2.5 生成，prompt 按 [SKILL.md](../../SKILL.md) 中的模式编写；均为原创生成，未使用任何上游或第三方素材。点击 GIF 可打开带声音的 mp4。
 
-Reproduce any of them with [`scripts/token360_video.py`](../../scripts/token360_video.py):
+Run this low-cost smoke test from the repository root with `TOKEN360_API_KEY` set. To reproduce a sample, save its prompt below to `my-prompt.txt` and use the recorded 5 s / 720p settings with [`scripts/token360_video.py`](../../scripts/token360_video.py):
 
 ```bash
-python3 scripts/token360_video.py --prompt-file my-prompt.txt --duration 5 --resolution 720p --aspect-ratio 16:9 --out clip.mp4
+printf '%s\n' 'Static camera. A ceramic mug on a wooden table, steam rising in morning light.' > my-prompt.txt
+python3 scripts/token360_video.py --prompt-file my-prompt.txt --duration 4 --resolution 480p --aspect-ratio 16:9 --out clip.mp4
 ```
 
 ### Product ad · `product-ad`

@@ -1,6 +1,6 @@
 ![Seedance Prompt Skill · Token360 版](assets/token360-header.webp)
 
-# Seedance 2.0 视频提示词撰写技能 · Token360 版
+# Seedance 视频提示词撰写技能 · Token360 Seedance 2.5 版
 
 [English](README.md)
 
@@ -19,6 +19,8 @@
 2. 渲染一段视频：
 
 ```bash
+git clone https://github.com/token360-community/seedance-prompt-skill.git
+cd seedance-prompt-skill
 export TOKEN360_API_KEY="sk-..."                         # 你的 Key（不要提交到仓库）
 export TOKEN360_BASE_URL="https://api.token360.ai/v1"    # 默认值，写出来便于理解
 python3 scripts/token360_video.py --model seedance-2.5 \
@@ -53,22 +55,24 @@ python3 scripts/token360_video.py --model seedance-2.5 \
 克隆或下载本仓库，然后将技能文件复制到 Claude skills 目录：
 
 ```bash
-mkdir -p ~/.claude/skills
+mkdir -p ~/.claude/skills/seedance-prompt-en/scripts ~/.claude/skills/seedance-prompt-zh/scripts
 
 # 中文版
-cp zh/SKILL.md ~/.claude/skills/seedance-prompt-zh.md
+cp zh/SKILL.md ~/.claude/skills/seedance-prompt-zh/SKILL.md
+cp scripts/token360_video.py ~/.claude/skills/seedance-prompt-zh/scripts/
 
 # 英文版
-cp SKILL.md ~/.claude/skills/seedance-prompt-en.md
+cp SKILL.md ~/.claude/skills/seedance-prompt-en/SKILL.md
+cp scripts/token360_video.py ~/.claude/skills/seedance-prompt-en/scripts/
 ```
 
 ### 方式 B：通过 skills CLI
 
 ```bash
-npx skills add token360-community/seedance-prompt-skill
+npx --yes skills add token360-community/seedance-prompt-skill --full-depth --skill seedance-prompt-en seedance-prompt-zh --agent claude-code --global --yes
 ```
 
-然后让你的 AI 代理帮你撰写 Seedance 2.0 视频提示词即可。
+重启 Claude Code，确认技能列表包含 `seedance-prompt-en` 和 `seedance-prompt-zh`。Token360 渲染使用 Seedance 2.5；原版指南保留即梦 Seedance 2.0 的限制说明。请在已安装技能目录（包含 `SKILL.md`）运行渲染命令。
 
 ## 技能文件
 

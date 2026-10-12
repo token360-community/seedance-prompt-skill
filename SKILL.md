@@ -386,10 +386,10 @@ When helping users write prompts:
 After the user approves a prompt, offer to render it. Only do this if the user wants to, and only when `TOKEN360_API_KEY` is set in their environment (never ask them to paste the key into the chat).
 
 1. Save the final prompt to a text file, e.g. `prompt.txt`.
-2. Run:
+2. From the skill directory containing this `SKILL.md` (or the repository root), run:
    ```bash
    python3 scripts/token360_video.py --prompt-file prompt.txt --model seedance-2.5 \
-     --duration 5 --resolution 720p --aspect-ratio 16:9 --out output.mp4
+     --duration 4 --resolution 480p --aspect-ratio 16:9 --out output.mp4
    ```
 3. Report the saved file path. Start with `--resolution 480p --duration 4` for drafts; it costs much less.
 
