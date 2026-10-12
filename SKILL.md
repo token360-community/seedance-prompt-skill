@@ -376,3 +376,29 @@ When helping users write prompts:
 4. **Explain your choices** — briefly note why you structured the prompt this way
 5. **Offer variations** — suggest a simpler or more ambitious alternative if appropriate
 6. **Remind about constraints** — especially the face restriction and file limits
+
+---
+
+## Optional: Render the Prompt on Token360 (Token360 edition)
+
+> Added in the Token360 fork. Everything above is the original guide and stays provider-neutral.
+
+After the user approves a prompt, offer to render it. Only do this if the user wants to, and only when `TOKEN360_API_KEY` is set in their environment (never ask them to paste the key into the chat).
+
+1. Save the final prompt to a text file, e.g. `prompt.txt`.
+2. Run:
+   ```bash
+   python3 scripts/token360_video.py --prompt-file prompt.txt --model seedance-2.5 \
+     --duration 5 --resolution 720p --aspect-ratio 16:9 --out output.mp4
+   ```
+3. Report the saved file path. Start with `--resolution 480p --duration 4` for drafts; it costs much less.
+
+Mapping skill concepts to the API:
+- Duration, resolution and aspect ratio → `--duration`, `--resolution`, `--aspect-ratio`.
+- Sound design in the prompt → keep audio on (default); `--no-audio` for silent clips.
+- A first frame (`@Image1 as the first frame`) → `--first-frame <public image URL>`.
+- Reference images → `--ref-image <public image URL>` (repeatable). The script does not upload local files; host them first. Reference video and audio inputs are not wired into this script yet; use the raw API (`input_references`) for those.
+
+### Seedance 2.5 note
+
+The limits in this guide come from the Jimeng Seedance 2.0 manual. On Token360 (model schema as of 2026-10-11), `seedance-2.5` accepts 4–30 s durations, 480p / 720p / 1080p, aspect ratios 16:9, 9:16, 4:3, 3:4, 1:1, 21:9 or adaptive, generated audio, first/last-frame images, and image/video/audio references. The 2.0 family (`seedance-2.0`, `-fast`, `-mini`) accepts 4–15 s. For 2.5 clips longer than 15 s, extend the time-segmented structure above (e.g. 0–5s / 5–10s / … / 25–30s) and keep one main action per segment.

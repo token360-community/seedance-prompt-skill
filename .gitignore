@@ -13,3 +13,10 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Local secrets and renders (Token360 edition)
+.env
+*.local
+/output*.mp4
+__pycache__/
+*.pyc

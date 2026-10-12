@@ -1,0 +1,30 @@
+This repository is a modified version of https://github.com/dexhunter/seedance2-skill
+(commit 516284d5bab58361bfdfed3cc96cee3e837d4c44, 2026-09-19),
+Copyright (c) 2026 Dex (i@dex.moe), licensed under the MIT License (see LICENSE, unchanged).
+All credit for the original skill, prompt patterns and templates goes to Dex (dexhunter)
+and the upstream contributors.
+
+The skill content summarizes ByteDance's public Seedance 2.0 user manual and case studies
+(linked in README "Sources"). Seedance, Jimeng (即梦) and Dreamina are products and
+trademarks of ByteDance. This fork is not affiliated with, sponsored by or endorsed by
+ByteDance or by the original author.
+
+Modifications by Token360 (2026-10-11):
+- README.md / README-zh.md: Token360 header, credit block, ByteDance non-affiliation
+  notice, Token360 quick start, "Made with Token360" samples, "Differences from upstream".
+- SKILL.md / zh/SKILL.md: appended an optional "Render on Token360" section and a
+  Seedance 2.5 note. The original guide text is unchanged.
+- scripts/token360_video.py: new stdlib-only script (POST /v1/videos, poll, download);
+  reads TOKEN360_API_KEY from the environment.
+- assets/seedance2-thumbnail.png: removed (upstream generated image).
+  assets/thumbnail-token360.jpg: regenerated with Token360 (gpt-image-2) from the
+  repo's own assets/thumbnail-prompt.txt, with the typography instructions replaced by
+  "no text" (assets/thumbnail-prompt-token360.txt); title and Token360 wordmark were
+  overlaid with HTML/headless Chrome.
+  assets/token360-header.webp: new header; illustration generated with Token360
+  (gpt-image-2.5-flare), wordmark and title overlaid with HTML/headless Chrome.
+- examples/token360-samples/: four original sample clips generated with seedance-2.5 on
+  Token360 (mp4 re-encoded to 480p plus GIF previews), with prompts and cost.
+- .env.example: new.
+
+"Token360" is a trademark of Token360. Upstream names and marks belong to their owners.
