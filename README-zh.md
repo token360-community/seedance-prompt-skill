@@ -65,10 +65,8 @@ cp SKILL.md ~/.claude/skills/seedance-prompt-en.md
 ### 方式 B：通过 skills CLI
 
 ```bash
-npx skills add dexhunter/seedance2-skill
+npx skills add token360-community/seedance-prompt-skill
 ```
-
-（该命令安装的是上游原版技能；Token360 版发布后请改用 fork 仓库路径。）
 
 然后让你的 AI 代理帮你撰写 Seedance 2.0 视频提示词即可。
 

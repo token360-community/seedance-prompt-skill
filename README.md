@@ -65,10 +65,8 @@ cp zh/SKILL.md ~/.claude/skills/seedance-prompt-zh.md
 ### Option B: Via skills CLI
 
 ```bash
-npx skills add dexhunter/seedance2-skill
+npx skills add token360-community/seedance-prompt-skill
 ```
-
-(This installs the original upstream skill. For this Token360 edition, use the fork's repository path once it is published.)
 
 Then ask your AI agent to help you write a Seedance 2.0 video prompt.
 
